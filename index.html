@@ -13,8 +13,23 @@
             transition: 0.2s ease-in-out ;
         }
         ::-webkit-scrollbar {
-            width: 12px; /* Width of the entire scrollbar */
-            background-color: #f1f1f1; /* Background color of the scrollbar track */
+            width: 8px; /* Width of the scrollbar */
+        }
+
+        /* Style the track (the background of the scrollbar) */
+        ::-webkit-scrollbar-track {
+            background: #e02929; /* Color of the track */
+        }
+
+        /* Style the thumb (the draggable part of the scrollbar) */
+        ::-webkit-scrollbar-thumb {
+            background: #e36868a9; /* Color of the thumb */
+            border-radius: 10px; /* Rounder corners for the thumb */
+        }
+
+        /* Change the color of the thumb on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ff5e;
         }
     </style>
 </head>
