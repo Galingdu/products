@@ -18,12 +18,12 @@
 
         /* Style the track (the background of the scrollbar) */
         ::-webkit-scrollbar-track {
-            background: #e02929; /* Color of the track */
+            background: #e0292900; /* Color of the track */
         }
 
         /* Style the thumb (the draggable part of the scrollbar) */
         ::-webkit-scrollbar-thumb {
-            background: #e36868a9; /* Color of the thumb */
+            background: red; /* Color of the thumb */
             border-radius: 10px; /* Rounder corners for the thumb */
         }
 
@@ -170,7 +170,7 @@
             new_product.classList.add('col-xxl-3','col-lg-4','col-md-6','col-sm-12');
             new_product.innerHTML = `
              <div class="col-lg-3 col-md-6 col-sm-12 mt-3" onclick="Onproduckclick(${index})" >	
-                        <div class="hover d-none d-md-block card mt-2 d-flex justify-content-center align-items-center" 
+                        <div class="hover d-none d-md-block card border-1 border-danger mt-2 d-flex justify-content-center align-items-center" 
                             style="box-shadow: 3px 4px 5px 0.1px #cccc;height:100%;width:211px;" id="item_list">
                                 <img src="./img/${products.image}" alt="Pf" 
                                 class="card-img-top" style="height: 200px;width: 210px;object-fit: cover;" onerror="this.onerror=null;this.src='./img/abc.jpg';">
