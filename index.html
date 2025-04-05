@@ -112,9 +112,9 @@
         let grand_total_riel = document.getElementById('grand_total_riel')
         let btn_pay = document.getElementById('btn_pay')
         let heng = 0
+        localStorage.setItem("product_selected", JSON.stringify(product_selected_arr))
         
         
-
         function printRecipe()
         {
             if (product_selected_arr.length==0){
@@ -123,6 +123,7 @@
                 return
             }
             else{
+                
                 setTimeout(()=>{
                 sound('click'), 0.01
                  })
@@ -216,6 +217,7 @@
                         confirmButtonText: "Yes !"
                         }).then((result) => {
                         if (result.isConfirmed) {
+                            localStorage.clear()
                             btn_pay.innerHTML=''
                             product_selected_arr =[];
                             Renderselected_product()
@@ -231,6 +233,7 @@
             }
 
         function Onproduckclick(index){
+            
             let product = Item_list[index];
             product.sub_total = product.Price;
 
@@ -240,10 +243,15 @@
             if(found == undefined){
                 product.qty = 1;
                 product_selected_arr.push(product);
+                localStorage.setItem("product_selected", JSON.stringify(product_selected_arr))
+            
             }
             else{
                 product.qty += 1;
                 product.sub_total = parseFloat(product.qty) * parseFloat(product.Price);
+                localStorage.setItem("product_selected", JSON.stringify(product_selected_arr))
+           
+        
                 
             }
             Renderselected_product()
@@ -305,11 +313,13 @@
             product_selected_arr = product_selected_arr.filter(item => item.id != id);
             Renderselected_product();
             calTotal();
+            let find_local = JSON.parse(localStorage.getItem("product_selected"))
+            find_local = find_local.filter(item => item.id != id);
+            localStorage.setItem("product_selected", JSON.stringify(find_local))
             if(product_selected_arr.length==0){
                 btn_pay.innerHTML=''
             }
         }
-       
     </script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
